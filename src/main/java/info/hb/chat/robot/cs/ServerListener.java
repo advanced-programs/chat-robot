@@ -1,11 +1,7 @@
-package cz.playfx.netrobot.net;
+package info.hb.chat.robot.cs;
 
 import java.util.EventListener;
 
-/**
- *
- * @author Felix
- */
 public interface ServerListener extends EventListener {
 
 }

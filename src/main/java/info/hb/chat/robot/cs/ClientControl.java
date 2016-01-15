@@ -1,4 +1,4 @@
-package cz.playfx.netrobot.gui;
+package info.hb.chat.robot.cs;
 
 import java.net.URL;
 import java.net.UnknownHostException;
@@ -17,14 +17,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import cz.playfx.netrobot.net.Client;
-import cz.playfx.netrobot.net.Server;
-import cz.playfx.netrobot.utils.Sounds;
 
-/**
- *
- * @author Felix
- */
+@SuppressWarnings("restriction")
 public class ClientControl implements Initializable {
 
 	// Vars
@@ -88,7 +82,7 @@ public class ClientControl implements Initializable {
 
 	/**
 	 * *************************************************************************
-	 * ACTIONS *****************************************************************
+	 * ACTIONS **************************************************
 	 * *************************************************************************
 	 */
 	@FXML
@@ -112,8 +106,8 @@ public class ClientControl implements Initializable {
 
 			server.onRecieve(packet -> {
 				// Append message
-				communication.appendText("Recieved: " + packet.getAddress().getHostAddress() + ":" + packet.getPort()
-						+ " = " + new String(packet.getData()) + "\n");
+				communication.appendText("Recieved: " + packet.getAddress().getHostAddress() + ":"
+						+ packet.getPort() + " = " + new String(packet.getData()) + "\n");
 
 				// Play sound
 				Sounds.recieveMessage();
@@ -147,7 +141,6 @@ public class ClientControl implements Initializable {
 		} catch (UnknownHostException ex) {
 			Logger.getLogger(ClientControl.class.getName()).log(Level.SEVERE, null, ex);
 		}
-
 	}
 
 }
